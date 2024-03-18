@@ -1,0 +1,11 @@
+Model Information:
+* title:	Dinomei Space Explorer
+* source:	https://sketchfab.com/3d-models/dinomei-space-explorer-a05369f50a3948c3a67bef1c617e96bc
+* author:	Javixu13 (https://sketchfab.com/Javibu13)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Dinomei Space Explorer" (https://sketchfab.com/3d-models/dinomei-space-explorer-a05369f50a3948c3a67bef1c617e96bc) by Javixu13 (https://sketchfab.com/Javibu13) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

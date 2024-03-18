@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS HEX 
+--dark-purple: #39284Bff;
+--azure-web: #F6FEFFff;
+--space-cadet: #1A234Dff;
+--ultra-violet: #685CA2ff;
+--space-cadet-2: #292449ff;
+--dark-purple: hsla(269, 30%, 23%, 1);
+--azure-web: hsla(187, 100%, 98%, 1);
+--space-cadet: hsla(229, 50%, 20%, 1);
+--ultra-violet: hsla(250, 28%, 50%, 1);
+--space-cadet-2: hsla(248, 34%, 21%, 1);
+$dark-purple: #39284Bff;
+$azure-web: #F6FEFFff;
+$space-cadet: #1A234Dff;
+$ultra-violet: #685CA2ff;
+$space-cadet-2: #292449ff
+*/
+@font-face {
+    font-family: 'Righteous';
+    src: local('Righteous'),
+        url('../public/fonts/space-quest-font/SpaceQuest-Xj4o.ttf') format('woff'),
+}
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&family=Nova+Square&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+html,
+body,
+#root {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    color: #F6FEFF;
+}
+
+canvas {
+    z-index: -10
+}
+
+.contactMe {}
+
+h1,
+h2 {
+    font-family: 'Righteous';
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#MissionControl {
+    top: 10vh;
+    left: 10vh;
+    z-index: 10;
+    background: linear-gradient(to bottom, #7003d8 0%, #9C17F5ff 100%);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 2vh;
+    border: 2px dotted white;
+}
+
+button {
+    text-decoration: underline;
+}
+
+button:hover {
+    color: black;
+}
+
+#AboutMe {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    color: #F6FEFF;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    letter-spacing: 0.2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 750;
+    background-color: rgb(0, 0, 0);
+    z-index: 15;
+}
+
+#BackButton {
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    font-weight: 750;
+    position: fixed;
+    left: 2.5vh;
+    bottom: 2.5vh;
+    z-index: 17;
+}
+
+#AboutMeImage {
+    top: 5vh;
+    width: 100%;
+    z-index: 16;
+    opacity: 0.25;
+}
+
+#AboutMeText {
+    position: fixed;
+    width: 40vw;
+    left: 25vh;
+    opacity: 1;
+    z-index: 17;
+    font-family: Patrick Hand SC;
+}
+
+#Experience {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+#WebOccult,
+#Prototech,
+#Promact {
+    transition: transform .5s;
+    /* Animation */
+    transform: scale(0.75);
+    width: 25vw;
+    height: 25vh;
+}
+
+#WebOccult:hover,
+#Prototech:hover,
+#Promact:hover {
+    transform: scale(1);
+}
+
+.ExperienceDetails {
+    font-size: 1rem;
+    font-family: Nova Square;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    position: fixed;
+    color: white;
+    opacity: 1;
+    z-index: 15;
+}
+
+.exp-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20vh 55vh;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.ExperienceDetails>img {
+    width: 100vw;
+}
+
+.exp-skills,
+.exp-projects {
+    font-size: 1.2rem;
+    font-family: Roboto Serif;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.exp-skills>p {
+    padding: 1vh;
+    margin: 1vh;
+    display: flex;
+    border-radius: 10px;
+    color: #7003d8;
+    background-color: #F6FEFF;
+}
+
+.exp-projects>button, .exp-projects>a {
+    padding: 1vh;
+    margin: 1vh;
+    display: flex;
+    border-radius: 10px;
+    background-color: white;
+    color: darkorange;
+}
