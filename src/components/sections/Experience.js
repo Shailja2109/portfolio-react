@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Experience = ({ onSetPage }) => {
     const [exp, setExp] = useState('None')
