@@ -202,7 +202,7 @@ button:hover {
     display: flex;
     border-radius: 10px;
     color: white;
-    background-color: darkkhaki;
+    background-color: darkorange;
 }
 
 .exp-projects>button, .exp-projects>a {
