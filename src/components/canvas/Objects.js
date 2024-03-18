@@ -12,7 +12,6 @@ const Objects = ({ page, enter, onSetEnter }) => {
 
   let comp_texture = useVideoTexture('./Computer.mp4');
   let stat_texture = useVideoTexture('./Statistics.mp4');
-  let about_texture = useVideoTexture('./AboutMe.mp4');
 
   const boxRef1 = useRef();
   const boxRef2 = useRef();
@@ -81,14 +80,6 @@ const Objects = ({ page, enter, onSetEnter }) => {
         {"ENTER"}
       </Text3D>
     </RoundedBox>
-    {page === 'AboutMe' && <>
-      <mesh
-        scale={[1, 1, 1]}
-        position={[-1, -0.5, 0]}>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial map={about_texture} transparent={true} opacity={0} color='#ffffff' />
-      </mesh>
-    </>}
     {page === 'Education' && <>
       <RoundedBox
         ref={boxRef1}
