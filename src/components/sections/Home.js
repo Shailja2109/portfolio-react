@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AboutMe from './AboutMe.js'
 import Experience from './Experience.js'
-import FileDrop from '../FileDrop/FileDrop.js'
 
 function Home({ page, onSetPage, enter }) {
     const [popUp, setPopUp] = useState(0)
@@ -36,7 +35,7 @@ function Home({ page, onSetPage, enter }) {
                 </div>
                 <div className="mb-2">
                     <span className=" mr-2">Mission 4:</span>
-                    <button onClick={() => { page === 'Configurator' ? onSetPage('Home') : onSetPage('Configurator') }}>3D Configurator</button>
+                    <a className='underline' href='https://3dconfiguratorshailja.netlify.app/'>3D Configurator</a>
                 </div>
                 <div className='flex flex-wrap justify-center'>
                     {/* <button onClick={(e) => { popUp === 1 ? setPopUp(0) : setPopUp(1) }}> */}
