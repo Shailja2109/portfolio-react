@@ -39,10 +39,13 @@ body,
     height: 100%;
     background: rgb(0, 0, 0);
     color: #F6FEFF;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 canvas {
-    z-index: -10
+    z-index: -1
 }
 
 .contactMe {}
@@ -52,8 +55,7 @@ h2 {
     font-family: 'Righteous';
     justify-content: center;
     text-align: center;
-    padding: 10px;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 canvas {
@@ -65,24 +67,86 @@ canvas {
 }
 
 #MissionControl {
-    top: 10vh;
-    left: 10vh;
-    z-index: 10;
-    background: linear-gradient(to bottom, #7003d8 0%, #9C17F5ff 100%);
+    bottom: 0vh;
+    width: 100%;
+    z-index: 1;
     position: fixed;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    padding: 2vh;
-    border: 2px dotted white;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+}
+#MissionControl-Heading{
+    position: fixed;
+    bottom: -15vh;
+    padding: 0vh 2.5vh 10vh 2.5vh;
+    width: 25vh;
+    height: 25vh;
+    border-radius: 360px;
+    background: linear-gradient(to top, #7003d8 0%, #9C17F5ff 100%);
 }
 
-button {
-    text-decoration: underline;
+#m1, #m4, #m2, #m3, #m5{
+    margin: 0vh;
+    padding: 0vh;
+    bottom: 12.5vh;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 360px;
+    position: fixed;
+    font-family: Roboto serif;
+}
+#m1{
+    left: 85vh; 
+    bottom: 0vh; 
+}
+#m2{
+    left: 90vh; 
+    bottom: 7vh; 
+}
+#m4{
+    right: 90vh; 
+    bottom: 7vh; 
+}
+#m5{
+    right: 85vh; 
+    bottom: 0vh; 
 }
 
-button:hover {
+#b1, #b4, #b2, #b3{
+    margin: 2vh;
+    width: 15vh;
+    height: 15vh;
+    border-radius: 360px;
+    color: #F6FEFF;
+    background: linear-gradient(to top, black 0%, #9C17F5ff 100%);
+    position: fixed;
+    font-family: Roboto serif;
+}
+#b1{
+    right: 75vh; 
+    bottom: -0.5vh;     
+}
+#b4{
+    left: 75vh;
+    bottom: -0.5vh;  
+}
+#b3{
+    right: 88vh;  
+    bottom: 10vh;  
+}
+#b2{
+    left: 88vh;
+    bottom: 10vh;
+}
+
+#b1:hover, #b4:hover, #b2:hover, #b3:hover, #MissionControl-Heading:hover{
     color: black;
+    background: linear-gradient(to bottom, white 0%, #9C17F5ff 100%);
+    background-color: white;
 }
 
 #AboutMe {
@@ -92,7 +156,7 @@ button:hover {
     height: 100%;
     width: 100%;
     color: #F6FEFF;
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-align: center;
     display: flex;
     letter-spacing: 0.2rem;
@@ -102,41 +166,49 @@ button:hover {
     border-radius: 10px;
     font-weight: 750;
     background-color: rgb(0, 0, 0);
-    z-index: 15;
+    z-index: 2;
 }
 
 #BackButton {
-    font-size: 2rem;
+    font-size: 1.5rem;
     letter-spacing: 0.2rem;
     font-weight: 750;
     position: fixed;
     left: 2.5vh;
     bottom: 2.5vh;
-    z-index: 17;
+    z-index: 3;
 }
 
 #AboutMeImage {
     top: 5vh;
     width: 100%;
-    z-index: 16;
+    z-index: 1;
     opacity: 0.25;
 }
 
 #AboutMeText {
     position: fixed;
-    width: 40vw;
-    left: 25vh;
+    width: 50vw;
     opacity: 1;
-    z-index: 17;
+    z-index: 3;
     font-family: Patrick Hand SC;
 }
 
 #Experience {
-    height: 100vh;
+    height: 110vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#Companies{
+    display: flex;
     flex-direction: row;
-    background-color: rgb(0, 0, 0, 0.5);
+    width: 70%;
+    margin: 2vh;
 }
 
 #WebOccult,
@@ -145,8 +217,8 @@ button:hover {
     transition: transform .5s;
     /* Animation */
     transform: scale(0.75);
-    width: 25vw;
-    height: 25vh;
+    /* width: 25vw;
+    height: 25vh; */
 }
 
 #WebOccult:hover,
@@ -155,38 +227,37 @@ button:hover {
     transform: scale(1);
 }
 
-.ExperienceDetails {
-    font-size: 1rem;
-    font-family: Nova Square;
-    letter-spacing: 0.2rem;
-    font-weight: bold;
-    position: fixed;
-    top: 0;
-    left: 0;
-    position: fixed;
+#card{
+    width: 60vw;
+}
+
+#exp-skills{
+    top:10vh;
+    padding: 2vh;
+    margin: 2vh;
+    border-radius: 10px;
     color: white;
-    opacity: 1;
-    z-index: 15;
+    background-color: #9C17F5ff;
+    font-size: 1rem;
+    font-family: Roboto Serif;
+    letter-spacing: 0.2rem;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 5;
 }
 
 .exp-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 20vh 55vh;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
+    padding: 5vh 10vh;
+    width: 50vw;
+    height: 50vh;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-family: Patrick Hand SC;
+    background-color: rgb(255, 255, 255, 0.5);
+    color: BLACK;
 }
 
-.ExperienceDetails>img {
-    width: 100vw;
-}
-
-.exp-skills,
-.exp-projects {
+.exp-buttons {
     font-size: 1.2rem;
     font-family: Roboto Serif;
     justify-content: center;
@@ -194,22 +265,27 @@ button:hover {
     align-items: center;
     display: flex;
     flex-direction: row;
+    z-index: 5;
+    border-radius: 10px;
 }
 
-.exp-skills>p {
-    padding: 1vh;
-    margin: 1vh;
-    display: flex;
+.exp-buttons>button, .exp-buttons>a {
+
+    padding: 2.5;
+    margin: 2.5;
     border-radius: 10px;
-    color: white;
-    background-color: darkorange;
+    background-color: #9C17F5ff;
+    color: WHITE;
 }
 
-.exp-projects>button, .exp-projects>a {
-    padding: 1vh;
-    margin: 1vh;
-    display: flex;
-    border-radius: 10px;
-    background-color: white;
-    color: darkorange;
+button{
+    margin: 2vh;
+    padding: 2vh;
+    border-radius: 2vh;
+    background-color: #9C17F5ff;
+}
+
+button:hover{
+    background-color: WHITE;
+    color: #9C17F5ff;
 }

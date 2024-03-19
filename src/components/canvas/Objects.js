@@ -9,7 +9,7 @@ const Objects = ({ page, enter, onSetEnter }) => {
   const denomie = useGLTF('./denomie/scene.glb')
   const spiral = useGLTF('./spiral_violet.glb')
   const animations = useAnimations(denomie.animations, denomie.scene)
-
+  const space_window = useGLTF('./space-window.glb') 
   let comp_texture = useVideoTexture('./Computer.mp4');
   let stat_texture = useVideoTexture('./Statistics.mp4');
 
@@ -51,7 +51,7 @@ const Objects = ({ page, enter, onSetEnter }) => {
     <primitive
       object={denomie.scene}
       scale={0.2}
-      position={page === 'Education' || page === 'Experience'? [0, -0.5, 3.85] : [0, -0.25, 3.85]}
+      position={page === 'Experience' ? [0, -1, 3.85] : [0, -0.25, 3.85]}
       rotation={(enter || page === 'AboutMe' || page === 'Education') ? [0, 0, 0] : [0.5, 3.3, 0]}
     />
     <primitive
@@ -169,6 +169,14 @@ const Objects = ({ page, enter, onSetEnter }) => {
         {"Welcome to My Universe"}
       </Text3D>
 
+    </>}
+    {page === 'Experience' && <>
+      <primitive
+        object={space_window.scene}
+        scale={0.75}
+        position={[0,0,3.5]}
+        rotation={[0, 1.57, 0]}
+      />
     </>}
   </>
   )
