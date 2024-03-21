@@ -59,93 +59,65 @@ h2 {
 }
 
 canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
 }
 
 #MissionControl {
-    bottom: 0vh;
-    width: 100%;
-    z-index: 1;
     position: fixed;
+    z-index: 1;
     display: flex;
-    flex-direction: column;
-    border-radius: 5px;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 1rem;
+    background: url('../public/texture.png');
+    top: 25vh;
+    left: 58vh;
+    height: 35vh;
+    width: 30vw;
+    flex-wrap: wrap;
+    border: 0.5rem grey solid;
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 5px;
 }
+
 #MissionControl-Heading{
-    position: fixed;
-    bottom: -15vh;
-    padding: 0vh 2.5vh 10vh 2.5vh;
-    width: 25vh;
-    height: 25vh;
-    border-radius: 360px;
-    background: linear-gradient(to top, #7003d8 0%, #9C17F5ff 100%);
+    padding: 2vh;
+    width: 25vw;
 }
 
 #m1, #m4, #m2, #m3, #m5{
-    margin: 0vh;
-    padding: 0vh;
-    bottom: 12.5vh;
+    margin: 2vh;
+    padding: 2vh;
     width: 5vh;
     height: 5vh;
-    border-radius: 360px;
-    position: fixed;
-    font-family: Roboto serif;
-}
-#m1{
-    left: 85vh; 
-    bottom: 0vh; 
-}
-#m2{
-    left: 90vh; 
-    bottom: 7vh; 
-}
-#m4{
-    right: 90vh; 
-    bottom: 7vh; 
-}
-#m5{
-    right: 85vh; 
-    bottom: 0vh; 
+    padding: 0px;
+    opacity: 1;
 }
 
 #b1, #b4, #b2, #b3{
-    margin: 2vh;
-    width: 15vh;
-    height: 15vh;
-    border-radius: 360px;
-    color: #F6FEFF;
-    background: linear-gradient(to top, black 0%, #9C17F5ff 100%);
-    position: fixed;
-    font-family: Roboto serif;
-}
-#b1{
-    right: 75vh; 
-    bottom: -0.5vh;     
-}
-#b4{
-    left: 75vh;
-    bottom: -0.5vh;  
-}
-#b3{
-    right: 88vh;  
-    bottom: 10vh;  
-}
-#b2{
-    left: 88vh;
-    bottom: 10vh;
-}
-
-#b1:hover, #b4:hover, #b2:hover, #b3:hover, #MissionControl-Heading:hover{
+    margin: 1vh;
+    padding: 1vh;
+    border-radius: 0px;
     color: black;
     background: linear-gradient(to bottom, white 0%, #9C17F5ff 100%);
+    font-family: 'Righteous';
+    letter-spacing: 0.1rem;
+    border-radius: 5px;
+}
+
+#b5, #b6{
+    width: 7vh;
+    height: 7vh;
+    font-size: 2rem;
+    border-radius: 360px;
+    border: 0.1rem dotted white;
+}
+
+#b1:hover, #b4:hover, #b2:hover, #b3:hover{
+    color: black;
+    background: linear-gradient(to bottom, black 0%, #9C17F5ff 100%);
     background-color: white;
 }
 
@@ -171,12 +143,13 @@ canvas {
 
 #BackButton {
     font-size: 1.5rem;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
     font-weight: 750;
     position: fixed;
     left: 2.5vh;
     bottom: 2.5vh;
     z-index: 3;
+    font-family: 'Righteous';
 }
 
 #AboutMeImage {
@@ -239,7 +212,8 @@ canvas {
     color: white;
     background-color: #9C17F5ff;
     font-size: 1rem;
-    font-family: Roboto Serif;
+    letter-spacing: 0.2rem;
+    font-family: 'Righteous';
     letter-spacing: 0.2rem;
     justify-content: center;
     font-weight: bold;
@@ -259,7 +233,7 @@ canvas {
 
 .exp-buttons {
     font-size: 1.2rem;
-    font-family: Roboto Serif;
+    font-family: 'Righteous';
     justify-content: center;
     text-align: center;
     align-items: center;

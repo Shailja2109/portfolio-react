@@ -94,7 +94,7 @@ const Experience = ({ onSetPage }) => {
             {/* </div>} */}
         </div>
         <Carousel id="card" value={skills} numVisible={3} numScroll={3} itemTemplate={productTemplate} />
-        <button id='BackButton' onClick={() => { onSetPage('Home') }}>back</button>
+        <button id='BackButton' onClick={() => { if(exp != 'None'){setExp('None')}else{onSetPage('Home')}  }}>back</button>
     </div >)
 }
 
