@@ -1,17 +1,16 @@
 import { useEffect, useState, useRef } from 'react'
 import { useAnimations, useGLTF, Text3D, RoundedBox, useVideoTexture } from '@react-three/drei'
 import { useControls } from 'leva'
-import { useFrame } from 'react-three-fiber';
-
-const Objects = ({ page, enter, onSetEnter }) => {
+import { useFrame, useLoader } from 'react-three-fiber';
+import * as THREE from 'three'
+const Objects = ({ controls, page, enter, onSetEnter }) => {
   const font = "./fonts/gentilis_bold.typeface.json"
   const spaceControl = useGLTF('./space.glb')
-  const denomie = useGLTF('./denomie/scene.glb')
-  const spiral = useGLTF('./spiral_violet.glb')
-  const animations = useAnimations(denomie.animations, denomie.scene)
-  const space_window = useGLTF('./space-window.glb') 
-  let comp_texture = useVideoTexture('./Computer.mp4');
-  let stat_texture = useVideoTexture('./Statistics.mp4');
+  const spiral = useGLTF('./space_violet.glb')
+  const space_window = useGLTF('./space-window.glb')
+
+  let comp_texture = useLoader(THREE.TextureLoader, './Computer.png');
+  let stat_texture = useLoader(THREE.TextureLoader, './Stats.png');
 
   const boxRef1 = useRef();
   const boxRef2 = useRef();
@@ -27,59 +26,39 @@ const Objects = ({ page, enter, onSetEnter }) => {
     }
   });
 
-  const { animationName } = useControls({
-    animationName: { options: animations.names },
-  })
-
   const spiralAnimations = useAnimations(spiral.animations, spiral.scene)
-
   useEffect(() => {
     spiralAnimations.actions[spiralAnimations.names].play()
   }, [])
 
-  useEffect(() => {
-    const action = animations.actions[animationName]
-    action.reset().fadeIn(0.5).play()
-    console.log('animationName', animationName)
-    return () => {
-      console.log('dispose')
-      action.fadeOut(0.5)
-    }
-  }, [animationName])
-
   return (<>
-    <primitive
-      object={denomie.scene}
-      scale={0.2}
-      position={page === 'Experience' ? [0, -1, 3.85] : [0, -0.25, 3.85]}
-      rotation={(enter || page === 'AboutMe' || page === 'Education') ? [0, 0, 0] : [0.5, 3.3, 0]}
-    />
-    <primitive
-      object={spaceControl.scene}
-      scale={0.1}
-      position={enter ? [0, 0, 0.75] : [0, 0, 3.5]}
-      rotation={enter ? [0, 0, 0] : [0.2, 0, 0]}
-    />
-    <RoundedBox
+    {/* <RoundedBox
       visible={enter}
       radius={0.05}
-      args={[0.5, 0.25, 0.1]}
+      args={[0.4, 0.2, 0.1]}
       name={"Enter"}
       scale={[1, 1, 1]}
       position={enter ? [0, 0, 3.5] : [100, 100, 100]}
-      onClick={(e) => { console.log("Entered"); onSetEnter(false) }}>
-      <meshStandardMaterial transparent={true} opacity={0.5} color={'black'} />
+      onClick={(e) => { console.log("Entered"); onSetEnter(false) }}> */}
+      <mesh scale={[1, 1, 1]}
+        position={enter ? [0, 0, 3.5] : [100, 100, 100]}
+        onClick={(e) => { console.log("Entered"); onSetEnter(false) }}>
+      <boxGeometry args={[0.4,0.2, 0.1]}/>
+      <meshStandardMaterial transparent={true} opacity={1} color={'#ffffff'} wireframe={true} />
       <Text3D
-        position={[-0.2, -0.05, 0]}
+        position={[-0.15, -0.025, 0]}
         font={font}
         size={1}
         height={0.1}
-        scale={[0.1, 0.1, 0.1]}
+        scale={[0.075, 0.075, 0.075]}
         curveSegments={1}
+        color={'#000000'}
       >
-        {"ENTER"}
+      
+        {"START"}
       </Text3D>
-    </RoundedBox>
+      </mesh>
+    {/* </RoundedBox> */}
     {page === 'Education' && <>
       <RoundedBox
         ref={boxRef1}
@@ -87,7 +66,7 @@ const Objects = ({ page, enter, onSetEnter }) => {
         radius={0.05}
         args={[1, 1, 1]}
         position={[-1, -0.5, 0]}>
-        <meshStandardMaterial map={comp_texture} transparent={true} opacity={1} color='#ffffff' />
+        <meshStandardMaterial map={comp_texture} transparent={true} opacity={1} color='#B0B1E9' />
       </RoundedBox>
       <RoundedBox
         ref={boxRef2}
@@ -96,7 +75,7 @@ const Objects = ({ page, enter, onSetEnter }) => {
         args={[1, 1, 1]}
         position={[1, -0.5, 0]}>
         {/* <boxGeometry args={[1, 1, 1]} /> */}
-        <meshStandardMaterial map={stat_texture} transparent={true} opacity={1} color='#ffffff' />
+        <meshStandardMaterial map={stat_texture} transparent={true} opacity={1} color='#B0B1E9' />
       </RoundedBox>
       {/* <mesh
         ref={boxRef2}
@@ -113,33 +92,15 @@ const Objects = ({ page, enter, onSetEnter }) => {
     </>}
     {page === 'Home' && <>
       <primitive
+        visible={false}
         object={spaceControl.scene}
         scale={0.1}
         position={enter ? [0, 0, 0.75] : [0, 0, 3.5]}
         rotation={enter ? [0, 0, 0] : [0.2, 0, 0]}
       />
-      <RoundedBox
-        visible={enter}
-        radius={0.05}
-        args={[0.5, 0.25, 0.1]}
-        name={"Enter"}
-        scale={[1, 1, 1]}
-        position={enter ? [0, 0, 3.5] : [100, 100, 100]}
-        onClick={(e) => { console.log("Entered"); onSetEnter(false) }}>
-        <meshStandardMaterial transparent={true} opacity={0.5} color={'black'} />
-        <Text3D
-          position={[-0.2, -0.05, 0]}
-          font={font}
-          size={1}
-          height={0.1}
-          scale={[0.1, 0.1, 0.1]}
-          curveSegments={1}
-        >
-          {"ENTER"}
-        </Text3D>
-      </RoundedBox>
       <Text3D
-        position={[-0.85, 0.6, 0]}
+        visible={!enter && !controls}
+        position={[-0.85, 0.5, 0]}
         scale={[1, 1, 1]}
         font={font}
         size={0.1}
@@ -149,7 +110,8 @@ const Objects = ({ page, enter, onSetEnter }) => {
         {"Hello I am Shailja Atkotiya."}
       </Text3D>
       <Text3D
-        position={[-0.5, 0.4, 0]}
+        visible={!enter && !controls}
+        position={[-0.5, 0.25, 0]}
         scale={[1, 1, 1]}
         font={font}
         size={0.1}
@@ -159,7 +121,8 @@ const Objects = ({ page, enter, onSetEnter }) => {
         {"A 3D Developer"}
       </Text3D>
       <Text3D
-        position={[-0.75, 0.2, 0]}
+        visible={!enter && !controls}
+        position={[-0.75, 0, 0]}
         scale={[1, 1, 1]}
         font={font}
         size={0.1}
@@ -168,15 +131,106 @@ const Objects = ({ page, enter, onSetEnter }) => {
       >
         {"Welcome to My Universe"}
       </Text3D>
-
     </>}
-    {page === 'Experience' && <>
+    {!enter && controls && <>
       <primitive
         object={space_window.scene}
         scale={0.75}
-        position={[0,0,3.5]}
+        position={[0, 0, 3.5]}
         rotation={[0, 1.57, 0]}
       />
+    </>}
+    {page === 'AboutMe' && <>
+      <Text3D
+        position={[-2, 1, 0]}
+        scale={[1, 1, 0.1]}
+        font={font}
+        size={0.1}
+        height={0.1}
+        // curveSegments={1}
+      >
+        {"Hey there! Welcome to the section that people hardly read. "}
+      </Text3D>
+      <Text3D
+        position={[-2.5, 0.8, 0]}
+        scale={[1, 1, 0.1]}
+        font={font}
+        size={0.1}
+        height={0.1}
+        curveSegments={1}
+      >
+        {"I'm a passionate 3D Developer with a knack for turning innovative ideas into reality."}
+      </Text3D>
+      <Text3D
+        position={[-2.7, 0.6, 0]}
+        scale={[1, 1, 0.1]}
+        font={font}
+        size={0.1}
+        height={0.1}
+        curveSegments={1}
+      >
+        {"You can check out proof of my competence in CE in the education and experience section."}
+      </Text3D>
+      <Text3D
+        position={[-2.5, 0.4, 0]}
+        scale={[1, 1, 0.1]}
+        font={font}
+        size={0.1}
+        height={0.1}
+        curveSegments={1}
+      >
+        {"To know about me: I'm left-handed with the core characteristic of being creative."}
+      </Text3D>
+      <Text3D
+        position={[-2.25, 0.2, 0]}
+        scale={[1, 1, 0.1]}
+        font={font}
+        size={0.1}
+        height={0.1}
+        curveSegments={1}
+      >
+        {"It's hard to drag me away from my addiction to solving the things I'm onto. "}
+      </Text3D>
+      <Text3D
+        position={[-2.5, 0, 0]}
+        scale={[1, 1, 0.1]}
+        font={font}
+        size={0.1}
+        height={0.1}
+        curveSegments={1}
+      >
+        {"However, I manage to spike my dopamine with adventures, dancing, and traveling."}
+      </Text3D>
+      <Text3D
+        position={[-2, -0.2, 0]}
+        scale={[1, 1, 0.1]}
+        font={font}
+        size={0.1}
+        height={0.1}
+        curveSegments={1}
+      >
+        {"Like everyone, I too have a dark side during which I like to draw."}
+      </Text3D>
+      <Text3D
+        position={[-1, -0.4, 0]}
+        scale={[1, 1, 0.1]}
+        font={font}
+        size={0.1}
+        height={0.1}
+        curveSegments={1}
+      >
+        {"I'm not a by-the-books person;"}
+      </Text3D>
+      <Text3D
+        position={[-2.25, -0.6, 0]}
+        scale={[1, 1, 0.1]}
+        font={font}
+        size={0.1}
+        height={0.1}
+        curveSegments={1}
+      >
+        {" I like to go againest the trends and laws and work, thinking out of the box."}
+      </Text3D>
     </>}
   </>
   )

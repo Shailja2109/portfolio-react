@@ -2,7 +2,7 @@ import React from 'react';
 const AboutMe = ({onSetPage}) => {
     console.log("Inside page about me")
     return (<div id="AboutMe" className='bg-dark-violet text-white'>
-        <img id='AboutMeImage' src='./WhatsApp Image 2024-03-15 at 16.41.43.jpeg'></img>
+        {/* <img id='AboutMeImage' src='./WhatsApp Image 2024-03-15 at 16.41.43.jpeg'></img>
         <p id='AboutMeText'>
             Hey there! Welcome to the section that people hardly read. 
             I'm a passionate 3D Developer with a knack for turning innovative ideas into reality. 
@@ -12,7 +12,7 @@ const AboutMe = ({onSetPage}) => {
             However, I manage to spike my dopamine with adventures, dancing, and traveling. Like everyone, 
             I too have a dark side during which I like to draw. I'm not a by-the-books person; 
             I like to go againest the trends and laws and work, thinking out of the box.
-        </p>
+        </p> */}
         <button id='BackButton' onClick={() => {onSetPage('Home')}}>back</button>
     </div>)
 }

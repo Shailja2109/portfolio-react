@@ -2,23 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS HEX 
---dark-purple: #39284Bff;
---azure-web: #F6FEFFff;
---space-cadet: #1A234Dff;
---ultra-violet: #685CA2ff;
---space-cadet-2: #292449ff;
---dark-purple: hsla(269, 30%, 23%, 1);
---azure-web: hsla(187, 100%, 98%, 1);
---space-cadet: hsla(229, 50%, 20%, 1);
---ultra-violet: hsla(250, 28%, 50%, 1);
---space-cadet-2: hsla(248, 34%, 21%, 1);
-$dark-purple: #39284Bff;
-$azure-web: #F6FEFFff;
-$space-cadet: #1A234Dff;
-$ultra-violet: #685CA2ff;
-$space-cadet-2: #292449ff
-*/
+/* #8C5346
+#A33B5E
+#3C4451
+#D9BBA0
+#F6FAFD */
+/* #B0B1E9
+#4E4F47
+ */
+
 @font-face {
     font-family: 'Righteous';
     src: local('Righteous'),
@@ -38,20 +30,13 @@ body,
     width: 100%;
     height: 100%;
     background: rgb(0, 0, 0);
-    color: #F6FEFF;
+    color: #D9BBA0;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-canvas {
-    z-index: -1
-}
-
-.contactMe {}
-
-h1,
-h2 {
+h1, h2 {
     font-family: 'Righteous';
     justify-content: center;
     text-align: center;
@@ -64,98 +49,76 @@ canvas {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: -1
 }
 
 #MissionControl {
-    bottom: 0vh;
-    width: 100%;
+    height: 100%;
     z-index: 1;
-    position: fixed;
     display: flex;
     flex-direction: column;
-    border-radius: 5px;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 1rem;
+    /* border: 5px #4E4F47 solid ; */
 }
+
 #MissionControl-Heading{
-    position: fixed;
-    bottom: -15vh;
-    padding: 0vh 2.5vh 10vh 2.5vh;
-    width: 25vh;
-    height: 25vh;
-    border-radius: 360px;
-    background: linear-gradient(to top, #7003d8 0%, #9C17F5ff 100%);
+    height: 100%;
+    /* border-radius: 50px; */
+    /* box-shadow: inset 5px 5px #4E4F47, inset -5px -5px #B0B1E9; */
+    padding: 5px;
+    border: none;
+    display: inline-block;
+    color: #4E4F47;
+    cursor: pointer;
+    border: 2.5px #4E4F47 solid ;
+    
+}
+.popUpBox{
+    border: 2.5px #4E4F47 solid ;
+    padding: 5px;
 }
 
 #m1, #m4, #m2, #m3, #m5{
-    margin: 0vh;
-    padding: 0vh;
-    bottom: 12.5vh;
     width: 5vh;
     height: 5vh;
-    border-radius: 360px;
-    position: fixed;
+    margin: 5px;
+    padding: 2.5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
     font-family: Roboto serif;
-}
-#m1{
-    left: 85vh; 
-    bottom: 0vh; 
-}
-#m2{
-    left: 90vh; 
-    bottom: 7vh; 
-}
-#m4{
-    right: 90vh; 
-    bottom: 7vh; 
-}
-#m5{
-    right: 85vh; 
-    bottom: 0vh; 
+    border: 2px #4E4F47 solid ;
+    background-color: #B0B1E9;
 }
 
 #b1, #b4, #b2, #b3{
     margin: 2vh;
-    width: 15vh;
-    height: 15vh;
-    border-radius: 360px;
-    color: #F6FEFF;
-    background: linear-gradient(to top, black 0%, #9C17F5ff 100%);
-    position: fixed;
+    /* width: 15vh;
+    height: 15vh; */
+    color: #4E4F47;
+    border: 2px #4E4F47 solid ;
     font-family: Roboto serif;
-}
-#b1{
-    right: 75vh; 
-    bottom: -0.5vh;     
-}
-#b4{
-    left: 75vh;
-    bottom: -0.5vh;  
-}
-#b3{
-    right: 88vh;  
-    bottom: 10vh;  
-}
-#b2{
-    left: 88vh;
-    bottom: 10vh;
+    font-size: 1rem;
+    font-weight: 750;
+    z-index: 3;
 }
 
-#b1:hover, #b4:hover, #b2:hover, #b3:hover, #MissionControl-Heading:hover{
-    color: black;
-    background: linear-gradient(to bottom, white 0%, #9C17F5ff 100%);
-    background-color: white;
+#b1:hover, #b4:hover, #b2:hover, #b3:hover, .popUpBox:hover{
+    color: #B0B1E9;
+    background-color: #4E4F47;
 }
 
-#AboutMe {
+/* #AboutMe {
     position: fixed;
     top: 0px;
     left: 0px;
     height: 100%;
     width: 100%;
-    color: #F6FEFF;
+    color: #8C5346;
     font-size: 1rem;
     text-align: center;
     display: flex;
@@ -165,9 +128,8 @@ canvas {
     text-align: center;
     border-radius: 10px;
     font-weight: 750;
-    background-color: rgb(0, 0, 0);
     z-index: 2;
-}
+} */
 
 #BackButton {
     font-size: 1.5rem;
@@ -195,97 +157,99 @@ canvas {
 }
 
 #Experience {
-    height: 110vh;
-    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-family: Roboto Serif;
+    letter-spacing: 0.2rem;
+    font-size: 1.5rem;
 }
 
 #Companies{
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     width: 70%;
-    margin: 2vh;
+    margin: 10px;
 }
 
 #WebOccult,
 #Prototech,
 #Promact {
+    border: 2.5px #4E4F47 solid ;
     transition: transform .5s;
-    /* Animation */
     transform: scale(0.75);
-    /* width: 25vw;
-    height: 25vh; */
 }
 
 #WebOccult:hover,
 #Prototech:hover,
 #Promact:hover {
     transform: scale(1);
+    color: #B0B1E9;
+    background-color: #4E4F47;
 }
 
 #card{
-    width: 60vw;
+    width: 50%;
 }
 
 #exp-skills{
-    top:10vh;
-    padding: 2vh;
-    margin: 2vh;
-    border-radius: 10px;
-    color: white;
-    background-color: #9C17F5ff;
+    margin: 10px;
+    padding: 10px;
+    color: #4E4F47;
+    background-color: #B0B1E9;
     font-size: 1rem;
     font-family: Roboto Serif;
     letter-spacing: 0.2rem;
     justify-content: center;
-    font-weight: bold;
     z-index: 5;
+    border: 2px #4E4F47 solid ;
 }
 
 .exp-text {
-    padding: 5vh 10vh;
-    width: 50vw;
-    height: 50vh;
-    border-radius: 10px;
-    font-size: 1.5rem;
+    margin: 10px;
+    padding: 10px;
+    width: 60%;
+    /* height: 50%; */
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
     font-family: Patrick Hand SC;
     background-color: rgb(255, 255, 255, 0.5);
-    color: BLACK;
+    color: #4E4F47;
+    border: 2px #4E4F47 solid ;
 }
 
 .exp-buttons {
-    font-size: 1.2rem;
-    font-family: Roboto Serif;
     justify-content: center;
     text-align: center;
     align-items: center;
     display: flex;
     flex-direction: row;
-    z-index: 5;
-    border-radius: 10px;
 }
 
 .exp-buttons>button, .exp-buttons>a {
-
-    padding: 2.5;
-    margin: 2.5;
-    border-radius: 10px;
-    background-color: #9C17F5ff;
-    color: WHITE;
+    margin: 10px;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-family: Roboto Serif;
+    background-color: #4E4F47;
+    color: #B0B1E9;
+    z-index: 5;
 }
 
 button{
     margin: 2vh;
     padding: 2vh;
-    border-radius: 2vh;
-    background-color: #9C17F5ff;
+    color: #4E4F47;
+    border: 2px #4E4F47 solid ;
 }
 
 button:hover{
-    background-color: WHITE;
-    color: #9C17F5ff;
+    background-color: #4E4F47;
+    color: #B0B1E9;
 }

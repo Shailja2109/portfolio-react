@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import Objects from './Objects.js'
 import Skybox from './Skybox.js'
 import Planets from './Planets.js'
-const Container3D = ({ page, enter, onSetEnter }) => {
+const Container3D = ({ controls, page, enter, onSetEnter }) => {
   return (
     <>
       <Canvas
@@ -22,7 +22,7 @@ const Container3D = ({ page, enter, onSetEnter }) => {
           minPolarAngle={Math.PI / 6}
           maxPolarAngle={Math.PI - Math.PI / 6}
           minDistance={1}
-          maxDistance={25}
+          maxDistance={30}
         />
         <directionalLight
           castShadow
@@ -31,9 +31,9 @@ const Container3D = ({ page, enter, onSetEnter }) => {
           shadow-normalBias={0.04}
         />
         <ambientLight intensity={0.5} />
-        <Objects page={page} enter={enter} onSetEnter={onSetEnter}/>
-        <Planets />
-        <Skybox />
+        <Objects controls={controls} page={page} enter={enter} onSetEnter={onSetEnter} />
+        <Planets enter={enter} page={page}/>
+        <Skybox page={page}/>
       </Canvas>
     </>
   )

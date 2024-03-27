@@ -6,10 +6,11 @@ import Home from './components/sections/Home.js';
 export default function App() {
     const [page, setPage] = useState("Home")
     const [enter, setEnter] = useState(true)
-
+    const [controls, setControls] = useState(false)
+    console.log("Controls", controls)
     return (<>
-        <Home page={page} onSetPage={setPage} enter={enter}/>
-        <Container3D page={page} enter={enter} onSetEnter={setEnter}/>
+        <Home onSetControls={setControls} page={page} onSetPage={setPage} enter={enter}/>
+        <Container3D controls={controls} page={page} enter={enter} onSetEnter={setEnter}/>
     </>
     )
 }
