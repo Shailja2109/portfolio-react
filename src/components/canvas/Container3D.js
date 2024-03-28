@@ -32,7 +32,7 @@ const Container3D = ({ controls, page, enter, onSetEnter }) => {
         />
         <ambientLight intensity={0.5} />
         <Objects controls={controls} page={page} enter={enter} onSetEnter={onSetEnter} />
-        <Planets enter={enter} page={page}/>
+        <Planets enter={enter} page={page} controls={controls}/>
         <Skybox page={page}/>
       </Canvas>
     </>

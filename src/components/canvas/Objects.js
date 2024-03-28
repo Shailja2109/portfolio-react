@@ -1,11 +1,10 @@
 import { useEffect, useState, useRef } from 'react'
 import { useAnimations, useGLTF, Text3D, RoundedBox, useVideoTexture } from '@react-three/drei'
-import { useControls } from 'leva'
 import { useFrame, useLoader } from 'react-three-fiber';
 import * as THREE from 'three'
+
 const Objects = ({ controls, page, enter, onSetEnter }) => {
   const font = "./fonts/gentilis_bold.typeface.json"
-  const spaceControl = useGLTF('./space.glb')
   const spiral = useGLTF('./space_violet.glb')
   const space_window = useGLTF('./space-window.glb')
 
@@ -32,18 +31,18 @@ const Objects = ({ controls, page, enter, onSetEnter }) => {
   }, [])
 
   return (<>
-    {/* <RoundedBox
-      visible={enter}
-      radius={0.05}
-      args={[0.4, 0.2, 0.1]}
-      name={"Enter"}
-      scale={[1, 1, 1]}
+    {!enter && controls && <>
+      <primitive
+        object={space_window.scene}
+        scale={0.75}
+        position={[0, 0, 3.5]}
+        rotation={[0, 1.57, 0]}
+      />
+    </>}
+    <mesh scale={[1, 1, 1]}
       position={enter ? [0, 0, 3.5] : [100, 100, 100]}
-      onClick={(e) => { console.log("Entered"); onSetEnter(false) }}> */}
-      <mesh scale={[1, 1, 1]}
-        position={enter ? [0, 0, 3.5] : [100, 100, 100]}
-        onClick={(e) => { console.log("Entered"); onSetEnter(false) }}>
-      <boxGeometry args={[0.4,0.2, 0.1]}/>
+      onClick={(e) => { console.log("Entered"); onSetEnter(false) }}>
+      <boxGeometry args={[0.4, 0.2, 0.1]} />
       <meshStandardMaterial transparent={true} opacity={1} color={'#ffffff'} wireframe={true} />
       <Text3D
         position={[-0.15, -0.025, 0]}
@@ -54,11 +53,9 @@ const Objects = ({ controls, page, enter, onSetEnter }) => {
         curveSegments={1}
         color={'#000000'}
       >
-      
         {"START"}
       </Text3D>
-      </mesh>
-    {/* </RoundedBox> */}
+    </mesh>
     {page === 'Education' && <>
       <RoundedBox
         ref={boxRef1}
@@ -74,16 +71,8 @@ const Objects = ({ controls, page, enter, onSetEnter }) => {
         radius={0.05}
         args={[1, 1, 1]}
         position={[1, -0.5, 0]}>
-        {/* <boxGeometry args={[1, 1, 1]} /> */}
         <meshStandardMaterial map={stat_texture} transparent={true} opacity={1} color='#B0B1E9' />
       </RoundedBox>
-      {/* <mesh
-        ref={boxRef2}
-        scale={[1, 1, 1]}
-        position={[1, -0.5, 0]}>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial map={eduTex_2} transparent={true} opacity={1} color='#ffffff' />
-      </mesh> */}
       <primitive
         object={spiral.scene}
         scale={0.025}
@@ -91,13 +80,6 @@ const Objects = ({ controls, page, enter, onSetEnter }) => {
       />
     </>}
     {page === 'Home' && <>
-      <primitive
-        visible={false}
-        object={spaceControl.scene}
-        scale={0.1}
-        position={enter ? [0, 0, 0.75] : [0, 0, 3.5]}
-        rotation={enter ? [0, 0, 0] : [0.2, 0, 0]}
-      />
       <Text3D
         visible={!enter && !controls}
         position={[-0.85, 0.5, 0]}
@@ -132,22 +114,17 @@ const Objects = ({ controls, page, enter, onSetEnter }) => {
         {"Welcome to My Universe"}
       </Text3D>
     </>}
-    {!enter && controls && <>
-      <primitive
-        object={space_window.scene}
-        scale={0.75}
-        position={[0, 0, 3.5]}
-        rotation={[0, 1.57, 0]}
-      />
-    </>}
     {page === 'AboutMe' && <>
+      <mesh position={[0,0,-0.1]}>
+        <planeGeometry args={[6,3]}/>
+        <meshBasicMaterial color={"black"} transparent={true} opacity={0.75} />
+      </mesh>
       <Text3D
         position={[-2, 1, 0]}
         scale={[1, 1, 0.1]}
         font={font}
         size={0.1}
         height={0.1}
-        // curveSegments={1}
       >
         {"Hey there! Welcome to the section that people hardly read. "}
       </Text3D>

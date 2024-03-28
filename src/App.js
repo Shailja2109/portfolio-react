@@ -8,6 +8,7 @@ export default function App() {
     const [enter, setEnter] = useState(true)
     const [controls, setControls] = useState(false)
     console.log("Controls", controls)
+    
     return (<>
         <Home onSetControls={setControls} page={page} onSetPage={setPage} enter={enter}/>
         <Container3D controls={controls} page={page} enter={enter} onSetEnter={setEnter}/>
