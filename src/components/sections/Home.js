@@ -39,7 +39,7 @@ function Home({ onSetControls, page, onSetPage, enter }) {
                 }
                 {buttons === 0 && <div className='flex flex-wrap justify-center'>
                     <div id="m1" onClick={(e) => { popUp === 1 ? setPopUp(0) : setPopUp(1) }}>
-                        <img width="50" height="50" src="https://img.icons8.com/ios-glyphs/50/4E4F47/new-post.png" alt="new-post" />
+                        <img width="50" height="50" src="https://img.icons8.com/ios-glyphs/50/4E4F47/new-post.png" alt="mail" />
                     </div>
                     <a id="m2" href="https://github.com/Shailja2109">
                         <img width="50" height="50" src="https://img.icons8.com/ios-glyphs/50/4E4F47/github.png" alt="github" />
@@ -48,10 +48,10 @@ function Home({ onSetControls, page, onSetPage, enter }) {
                         <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/4E4F47/linkedin.png" alt="linkedin" />
                     </a>
                     <a id="m4" href="https://docs.google.com/document/d/1LWCXj6iP-TQcl1B_H8UoZXIg7cdGEM0Z7hVMr2NCdDI/edit#heading=h.g7xuyr6aqixk">
-                        <img width="50" height="50" src="https://img.icons8.com/ios-glyphs/50/4E4F47/resume.png" alt="new-post" />
+                        <img width="50" height="50" src="https://img.icons8.com/ios-glyphs/50/4E4F47/resume.png" alt="resume" />
                     </a>
                     <div id="m5" onClick={(e) => { popUp === 2 ? setPopUp(0) : setPopUp(2) }}>
-                        <img width="50" height="50" src="https://img.icons8.com/ios-glyphs/50/4E4F47/phone--v1.png" alt="phone--v1" />
+                        <img width="50" height="50" src="https://img.icons8.com/ios-glyphs/50/4E4F47/phone--v1.png" alt="contact" />
                     </div>
                 </div>}
             </div>

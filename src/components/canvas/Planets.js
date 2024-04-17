@@ -1,7 +1,7 @@
 import { useGLTF, useAnimations } from '@react-three/drei'
 import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from 'react-three-fiber';
-import { useControls } from 'leva'
+// import { useControls } from 'leva'
 
 export default function Planets({ enter, page, controls }) {
     const earth = useGLTF('./solar_system_animation/solar-system.glb')
@@ -18,19 +18,18 @@ export default function Planets({ enter, page, controls }) {
     const rocketLaunch = useGLTF("./cosmonaut_on_a_rocket.glb")
     const spaceControl = useGLTF('./space.glb')
     const animations = useAnimations(denomie.animations, denomie.scene)
-    const { animationName } = useControls({
-        animationName: { options: animations.names },
-    })
+    // const { animationName } = useControls({
+    //     animationName: { options: animations.names },
+    // })
 
     useEffect(() => {
-        const action = animations.actions[animationName]
+        const action = animations.actions[animations.names]
         action.reset().fadeIn(0.5).play()
-        console.log('animationName', animationName)
         return () => {
             console.log('dispose')
             action.fadeOut(0.5)
         }
-    }, [animationName])
+    }, [animations])
     useFrame(() => {
             if(earthRef) {earthRef.current.rotation.y -= 0.001;}
             if(rotation <= 2*(Math.PI)){
