@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import Objects from './Objects.js'
 import Skybox from './Skybox.js'
 import Planets from './Planets.js'
-const Container3D = ({ controls, page, enter, onSetEnter }) => {
+const Container3D = ({ controls, page, enter, onSetEnter, onSetLoading }) => {
   return (
     <>
       <Canvas
@@ -33,7 +33,7 @@ const Container3D = ({ controls, page, enter, onSetEnter }) => {
         <ambientLight intensity={0.5} />
         <Objects controls={controls} page={page} enter={enter} onSetEnter={onSetEnter} />
         <Planets enter={enter} page={page} controls={controls}/>
-        <Skybox page={page}/>
+        <Skybox page={page} onSetLoading={onSetLoading}/>
       </Canvas>
     </>
   )
