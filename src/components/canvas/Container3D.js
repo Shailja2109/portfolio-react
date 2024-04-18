@@ -21,7 +21,7 @@ const Container3D = ({ controls, page, enter, onSetEnter, onSetLoading }) => {
           intensity={1.5}
           shadow-normalBias={0.04}
         />
-        <OrbitControls/>
+        {/* <OrbitControls/> */}
         <ambientLight intensity={0.5} />
         <Objects controls={controls} page={page} enter={enter} onSetEnter={onSetEnter} />
         <Planets enter={enter} page={page} controls={controls}/>

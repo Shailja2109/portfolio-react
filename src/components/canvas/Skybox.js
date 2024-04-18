@@ -14,7 +14,7 @@ export default function Skybox({page, onSetLoading}) {
   
   useFrame(() => {
     if (boxRef.current && boxRef.current.rotation.y > -Math.PI) {
-      // boxRef.current.rotation.y -= 0.005;
+      boxRef.current.rotation.y -= 0.005;
     }
     if(boxRef.current.rotation.y <= -Math.PI){
       boxRef.current.rotation.y = Math.PI
