@@ -14,7 +14,7 @@
 @font-face {
     font-family: 'Righteous';
     src: local('Righteous'),
-        url('../public/fonts/space-quest-font/SpaceQuest-Xj4o.ttf') format('woff'),
+        url('../public/fonts/SpaceQuest-Xj4o.ttf') format('woff'),
 }
 
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&family=Nova+Square&display=swap');

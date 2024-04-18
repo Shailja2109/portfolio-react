@@ -5,8 +5,8 @@ import * as THREE from 'three';
 
 export default function Skybox({page, onSetLoading}) {
   const boxRef = useRef();
-  let skyBoxTexture_1 = useLoader(THREE.TextureLoader, './coral-skybox/textures/milky-way-2750627.jpg');
-  let skyBoxTexture_2 = useLoader(THREE.TextureLoader, './coral-skybox/textures/fractal-1280079.jpg');
+  let skyBoxTexture_1 = useLoader(THREE.TextureLoader, './Center.png');
+  let skyBoxTexture_2 = useLoader(THREE.TextureLoader, './Center-black.png');
   
   useEffect(() => {
     onSetLoading(false)
@@ -14,7 +14,7 @@ export default function Skybox({page, onSetLoading}) {
   
   useFrame(() => {
     if (boxRef.current && boxRef.current.rotation.y > -Math.PI) {
-      boxRef.current.rotation.y -= 0.005;
+      // boxRef.current.rotation.y -= 0.005;
     }
     if(boxRef.current.rotation.y <= -Math.PI){
       boxRef.current.rotation.y = Math.PI
